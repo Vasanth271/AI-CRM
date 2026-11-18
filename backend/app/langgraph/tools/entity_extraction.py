@@ -9,7 +9,7 @@ from app.langgraph.prompts.system_prompts import HCP_EXTRACTION_PROMPT
 from app.database.connection import SessionLocal
 from app.models.ai_log import AILog
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 
 @tool

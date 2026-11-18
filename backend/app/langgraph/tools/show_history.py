@@ -10,7 +10,7 @@ from app.models.interaction import Interaction
 from app.models.hcp import HCP
 from sqlalchemy import desc
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 LIMIT_EXTRACT_PROMPT = """Extract the number of interactions the user wants to see.
 Return ONLY a JSON: {"limit": <number>, "doctor_name": null}

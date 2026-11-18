@@ -23,7 +23,7 @@ from app.utils.auth import get_current_user
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/ai", tags=["AI"])
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 
 def generate_title(user_message: str) -> str:

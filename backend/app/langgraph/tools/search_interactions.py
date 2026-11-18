@@ -11,7 +11,7 @@ from app.models.interaction import Interaction
 from app.models.hcp import HCP
 from sqlalchemy import desc
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 
 @tool

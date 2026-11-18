@@ -20,7 +20,7 @@ from sqlalchemy import desc
 
 logger = logging.getLogger(__name__)
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 
 def _extract_filters(query_text: str) -> Dict[str, Any]:

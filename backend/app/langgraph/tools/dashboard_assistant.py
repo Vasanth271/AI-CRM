@@ -8,7 +8,7 @@ from app.langgraph.prompts.system_prompts import DASHBOARD_QUERY_PROMPT
 from app.database.connection import SessionLocal
 from app.services.interaction_service import get_dashboard_data
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 
 @tool

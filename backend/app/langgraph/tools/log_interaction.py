@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 SAVE_CONFIRMATION_PATTERNS = [
     "add this log", "add log", "save this", "save it", "log it",

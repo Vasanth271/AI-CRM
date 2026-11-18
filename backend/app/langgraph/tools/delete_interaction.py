@@ -11,7 +11,7 @@ from app.models.ai_log import AILog
 from app.utils.websocket import manager
 from sqlalchemy import desc
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant")
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"))
 
 DOCTOR_NAME_PROMPT = """Extract the doctor name from this message.
 Return ONLY the doctor name as plain text, nothing else.

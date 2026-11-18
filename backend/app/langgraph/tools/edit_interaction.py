@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-llm = ChatGroq(api_key=settings.GROQ_API_KEY, model="llama-3.1-8b-instant", temperature=0)
+llm = ChatGroq(api_key=settings.GROQ_API_KEY, model=getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b"), temperature=0)
 
 EDIT_EXTRACTION_PROMPT = """Parse this CRM edit request into a JSON object.
 
